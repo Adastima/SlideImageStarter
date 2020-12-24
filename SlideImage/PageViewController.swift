@@ -7,9 +7,9 @@
 
 import UIKit
 
-//protocol PageIndexDelegate {
-//    func updatePageIndex(currentIndex: Int)
-//}
+protocol PageIndexDelegate {
+    func updatePageIndex(currentIndex: Int)
+}
 
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource,  UIPageViewControllerDelegate  {
@@ -17,7 +17,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     var photoSet = [String]()
     var currentIndex = 0
     
-    //var indexDelegate: PageIndexDelegate?
+    var indexDelegate: PageIndexDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         if completed {
-            //indexDelegate?.updatePageIndex(currentIndex: currentIndex)
+            indexDelegate?.updatePageIndex(currentIndex: currentIndex)
         }
     }
 
